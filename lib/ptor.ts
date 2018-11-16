@@ -49,7 +49,6 @@ export class Ptor {
   WebElementPromise = webdriver.WebElementPromise;
   error = webdriver.error;
   logging = webdriver.logging;
-  promise = webdriver.promise;
   until = webdriver.until;
   Command = require('selenium-webdriver/lib/command').Command;
   CommandName = require('selenium-webdriver/lib/command').Name;
