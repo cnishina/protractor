@@ -4,6 +4,7 @@ var env = require('../environment.js');
 exports.config = {
   // seleniumAddress: env.seleniumAddress,
   mockSelenium: true,
+  SELENIUM_PROMISE_MANAGER: false,
 
   framework: 'jasmine',
 

@@ -5,9 +5,9 @@ var chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 var expect = chai.expect;
 
-describe('protractor library', function() {
-  it('should fail', function() {
-    browser.get('index.html');
-    expect(browser.getTitle()).to.eventually.equal('INTENTIONALLY INCORRECT');
+describe('protractor library', () => {
+  it('should fail', async () => {
+    await browser.get('index.html');
+    expect(await browser.getTitle()).to.equal('INTENTIONALLY INCORRECT');
   });
 });

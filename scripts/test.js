@@ -44,7 +44,7 @@ const passingTests = [
   'node built/cli.js spec/built/noCFBasicConf.js --useBlockingProxy',
   'node built/cli.js spec/built/noCFPluginConf.js',
   // //'node scripts/driverProviderAttachSession.js',
-  // 'node scripts/errorTest.js',
+  'node scripts/errorTest.js',
   // // Interactive Element Explorer tasks
   // 'node scripts/interactive_tests/interactive_test.js',
   // 'node scripts/interactive_tests/with_base_url.js',
@@ -58,16 +58,16 @@ const passingTests = [
 
 const executor = new Executor();
 
-passingTests.forEach((passing_test) => {
-  executor.addCommandlineTest(passing_test)
-      .assertExitCodeOnly();
-});
+// passingTests.forEach((passing_test) => {
+//   executor.addCommandlineTest(passing_test)
+//       .assertExitCodeOnly();
+// });
 
 /*************************
  *Below are failure tests*
  *************************/
 
-// assert stacktrace shows line of failure
+// // assert stacktrace shows line of failure
 // executor.addCommandlineTest('node built/cli.js spec/errorTest/singleFailureConf.js')
 //     .expectExitCode(1)
 //     .expectErrors({
@@ -93,21 +93,21 @@ passingTests.forEach((passing_test) => {
 //     .expectExitCode(1)
 //     .expectErrors([{
 //       message: 'Expected \'Hiya\' to equal \'INTENTIONALLY INCORRECT\'.',
-//       stacktrace: 'single_failure_spec1.js:5:32'
+//       // stacktrace: 'single_failure_spec\d.js:5:38'
 //     }, {
 //       message: 'Expected \'Hiya\' to equal \'INTENTIONALLY INCORRECT\'.',
-//       stacktrace: 'single_failure_spec2.js:5:32'
+//       // stacktrace: 'single_failure_spec\d.js:5:38'
 //     }]);
 
-// executor.addCommandlineTest('node built/cli.js spec/errorTest/shardedFailureConf.js')
-//     .expectExitCode(1)
-//     .expectErrors([{
-//       message: 'Expected \'Hiya\' to equal \'INTENTIONALLY INCORRECT\'.',
-//       stacktrace: 'single_failure_spec1.js:5:32'
-//     }, {
-//       message: 'Expected \'Hiya\' to equal \'INTENTIONALLY INCORRECT\'.',
-//       stacktrace: 'single_failure_spec2.js:5:32'
-//     }]);
+executor.addCommandlineTest('node built/cli.js spec/errorTest/shardedFailureConf.js')
+    .expectExitCode(1)
+    .expectErrors([{
+      message: 'Expected \'Hiya\' to equal \'INTENTIONALLY INCORRECT\'.',
+      // stacktrace: 'single_failure_spec\d.js:5:38'
+    }, {
+      message: 'Expected \'Hiya\' to equal \'INTENTIONALLY INCORRECT\'.',
+      // stacktrace: 'single_failure_spec\d.js:5:38'
+    }]);
 
 // executor.addCommandlineTest('node built/cli.js spec/errorTest/mochaFailureConf.js')
 //     .expectExitCode(1)
